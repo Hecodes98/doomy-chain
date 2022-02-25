@@ -10,13 +10,23 @@ function Chain(){
     this.size = 0;
 }
 
-Chain.prototype.add = function(Block) {
+Chain.prototype.add = function(Block) { 
     if(this.head === null){
         this.head = this.tail = Block;
     }else{
         let current = this.tail;
         current.next = Block;
         this.tail = current.next;
+    }
+    this.size++;
+}
+
+Chain.prototype.addBack = function(Block) { //BackLinkedList
+    if(this.head === null){
+        this.head = this.tail = Block;
+    }else{
+        Block.previousBlock = this.tail
+        this.tail = Block;
     }
     this.size++;
 }

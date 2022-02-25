@@ -33,7 +33,7 @@ Blockchain.prototype.createNewBlockTest = function(nonce){
                                 .setHash()
                                 .build();
     this.pendingTransactions = [];
-    this.chain.add(NEWBLOCK);
+    this.chain.addBack(NEWBLOCK);
 
     return NEWBLOCK;
 }

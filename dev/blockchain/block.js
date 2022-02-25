@@ -2,6 +2,7 @@ const sha256 = require('sha256');
 
 class Block {
     constructor() {
+        //this.next = null;
         this.index = 0;
         this.timestamp = Date.now();
         this.transactions = [];
@@ -28,7 +29,6 @@ class Block {
     }
     setPreviousHash() {
         if(this.previousBlock !== null){
-            console.log("entry")
             this.previousHash = this.previousBlock.hash;
         }
         return this;
@@ -38,7 +38,6 @@ class Block {
         return this;
     }
     generateHashCode() {
-        console.log(this.previousHash)
         const dataAsString = this.previousHash + this.nonce.toString() + JSON.stringify(this.transactions);
         return sha256(dataAsString);
         //return "hashesito";
@@ -51,6 +50,8 @@ class Block {
             nonce: this.nonce,
             previousHash: this.previousHash,
             hash: this.hash,
+            //next: this.next,
+            previousBlock : this.previousBlock
         };
     }
 }

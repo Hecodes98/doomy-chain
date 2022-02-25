@@ -8,4 +8,6 @@ bitcoin.createNewBlock(123123, '09HD8128', '97YD881N');
 */
 bitcoin.createNewTransaction(30, 'sender', 'recipient')
 bitcoin.createNewBlockTest(2389);
-console.log(bitcoin)
+bitcoin.createNewBlockTest(2390);
+
+console.log(bitcoin.chain.tail)
