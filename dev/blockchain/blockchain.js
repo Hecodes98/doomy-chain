@@ -41,11 +41,11 @@ Blockchain.prototype.createNewBlockTest = function(){
 Blockchain.prototype.getLastBlock = function(){
     return this.chain[this.chain.length -1]
 }
-/*
+
 Blockchain.prototype.getLastBlockTest = function(){
     return this.chain.tail
 }
-*/
+
 Blockchain.prototype.createNewTransaction = function(amount, sender, recipient){
     const newTransaction = {
         amount,
