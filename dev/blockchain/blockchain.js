@@ -4,9 +4,9 @@ const sha256 = require('sha256');
 //Here we going to build our entire blockchain data structure
 
 function Blockchain(){
-    this.chain = [];//new Chain(); // All of the block that we create and that we mine will be stored in this array as a chain
+    this.chain = new Chain(); // All of the block that we create and that we mine will be stored in this array as a chain
     this.pendingTransactions = []; // All the transaction's that are created before they are placed into a block and mined
-    this.createNewBlock(100, '0', '0'); // Genesis Block
+    this.createNewBlockTest(0); // Genesis Block
 }
 
 Blockchain.prototype.createNewBlock = function(nonce, previousBlockHash, hash){
@@ -24,12 +24,12 @@ Blockchain.prototype.createNewBlock = function(nonce, previousBlockHash, hash){
     return NEWBLOCK;
 }
 
-Blockchain.prototype.createNewBlockTest = function(){
+Blockchain.prototype.createNewBlockTest = function(nonce){
     const NEWBLOCK = new Block().setIndex(this.chain.size)
-                                .setNonce(2390)
+                                .setNonce(nonce)
                                 .setTransactions(this.pendingTransactions)
                                 .setPreviousBlock(this.chain.tail)
-                                .setPreviousHash('holasoledad')
+                                .setPreviousHash()
                                 .setHash()
                                 .build();
     this.pendingTransactions = [];
@@ -54,7 +54,7 @@ Blockchain.prototype.createNewTransaction = function(amount, sender, recipient){
     }
     this.pendingTransactions.push(newTransaction); 
 
-    return this.getLastBlock()['index'] + 1;
+    return this.getLastBlockTest()['index'] + 1;
 }
 
 Blockchain.prototype.hashBlock = function(previousBlockHash, currentBlockData, nonce){

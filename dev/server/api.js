@@ -9,6 +9,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended : false }))
 
 app.get('/blockchain', function(req,res){
+    bitcoin.createNewTransaction(30, 'sender', 'recipient')
+    bitcoin.createNewBlockTest(2389);
     res.send(bitcoin);
 });
 

@@ -29,7 +29,7 @@ class Block {
     setPreviousHash() {
         if(this.previousBlock !== null){
             console.log("entry")
-            this.previousHash = this.previousBlock.previousHash;
+            this.previousHash = this.previousBlock.hash;
         }
         return this;
     }
