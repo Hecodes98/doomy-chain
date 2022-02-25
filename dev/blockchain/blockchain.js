@@ -23,7 +23,7 @@ Blockchain.prototype.createNewBlock = function(nonce, previousBlockHash, hash){
 
     return NEWBLOCK;
 }
-/*
+
 Blockchain.prototype.createNewBlockTest = function(){
     const NEWBLOCK = new Block().setIndex(this.chain.size)
                                 .setNonce(2390)
@@ -37,7 +37,7 @@ Blockchain.prototype.createNewBlockTest = function(){
 
     return NEWBLOCK;
 }
-*/
+
 Blockchain.prototype.getLastBlock = function(){
     return this.chain[this.chain.length -1]
 }
